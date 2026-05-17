@@ -7,13 +7,14 @@ import crypto from "node:crypto";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 4173);
-const DATA_DIR = path.join(__dirname, "data");
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
 const LEADS_PATH = path.join(DATA_DIR, "leads.json");
 const ARTICLES_PATH = path.join(DATA_DIR, "articles.json");
-const ADMIN_KEY = process.env.ACADEMIC_ADMIN_KEY || "local-admin-key";
-const ADMIN_PASSWORD = process.env.ACADEMIC_ADMIN_PASSWORD || ADMIN_KEY;
-const SESSION_SECRET = process.env.ACADEMIC_SESSION_SECRET || ADMIN_KEY;
-const FIVERR_URL = process.env.FIVERR_URL || "https://www.fiverr.com/your-fiverr-username";
+const ADMIN_EMAIL = (process.env.ACADEMIC_ADMIN_EMAIL || "dehyinbox@gmail.com").toLowerCase();
+const ADMIN_PASSWORD = process.env.ACADEMIC_ADMIN_PASSWORD || "password123";
+const ADMIN_KEY = process.env.ACADEMIC_ADMIN_KEY || ADMIN_PASSWORD;
+const SESSION_SECRET = process.env.ACADEMIC_SESSION_SECRET || `${ADMIN_EMAIL}:${ADMIN_PASSWORD}`;
+const FIVERR_URL = process.env.FIVERR_URL || "https://www.fiverr.com/s/bdR74lX";
 const SITE_URL = (process.env.SITE_URL || "https://example.com").replace(/\/$/, "");
 
 const mimeTypes = {
@@ -421,8 +422,10 @@ async function handleApi(req, res) {
 
   if (req.method === "POST" && url.pathname === "/api/admin/login") {
     const body = await readBody(req);
-    if (cleanText(body.password, 300) !== ADMIN_PASSWORD) {
-      sendJson(res, 401, { error: "Invalid admin password." });
+    const email = cleanEmail(body.email);
+    const password = cleanText(body.password, 300);
+    if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
+      sendJson(res, 401, { error: "Invalid email or password." });
       return;
     }
     sendJson(res, 200, { ok: true, message: "Signed in." }, { "Set-Cookie": createAdminSessionCookie() });
@@ -606,8 +609,13 @@ async function serveStatic(req, res) {
   }
 }
 
-const server = createServer(async (req, res) => {
+let storeReady = ensureStore().catch((error) => {
+  console.error("Failed to initialize data store", error);
+});
+
+export async function handler(req, res) {
   try {
+    await storeReady;
     if (req.url?.startsWith("/api/")) {
       await handleApi(req, res);
       return;
@@ -616,9 +624,12 @@ const server = createServer(async (req, res) => {
   } catch (error) {
     sendJson(res, 500, { error: error.message || "Server error" });
   }
-});
+}
 
-await ensureStore();
-server.listen(PORT, () => {
-  console.info(`Academic Fiverr funnel running at http://localhost:${PORT}`);
-});
+const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isMain) {
+  const server = createServer(handler);
+  server.listen(PORT, () => {
+    console.info(`Academic Fiverr funnel running at http://localhost:${PORT}`);
+  });
+}
