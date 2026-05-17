@@ -1,0 +1,47 @@
+[
+  {
+    "id": "article_pfe_structure",
+    "title": "How to Structure a PFE Report Step by Step",
+    "slug": "how-to-structure-pfe-report",
+    "excerpt": "A clear outline for introduction, literature review, methodology, results, conclusion, formatting, and appendices.",
+    "category": "PFE Guide",
+    "tags": "PFE, final year project, report structure",
+    "coverImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+    "metaTitle": "How to Structure a PFE Report Step by Step",
+    "metaDescription": "Learn how to structure a PFE report with introduction, literature review, methodology, findings, conclusion, formatting tips, and ethical support guidance.",
+    "status": "published",
+    "content": "A strong PFE report starts with a clear project purpose. Explain the context, problem, objectives, research questions, scope, and expected contribution.\n\nUse a logical chapter sequence:\n- Introduction: context, problem, objectives, research questions, scope\n- Literature review: concepts, theories, previous studies, and research gap\n- Methodology: approach, tools, sampling, data collection, and limitations\n- Results or implementation: findings, analysis, prototype, case study, or applied work\n- Conclusion: outcomes, recommendations, limits, and future work\n\nBefore final review, check headings, table of contents, page numbers, figures, captions, references, appendices, margins, and university template rules.\n\nEthical academic support can help you improve structure, formatting, citations, proofreading, and presentation clarity. It should not replace your own research, analysis, or institutional responsibilities.",
+    "createdAt": "2026-05-17T00:00:00.000Z",
+    "updatedAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "article_apa_basics",
+    "title": "APA Citation Basics for Academic Reports",
+    "slug": "apa-citation-basics-academic-reports",
+    "excerpt": "Understand in-text citations, reference lists, online sources, citation consistency, and common APA mistakes.",
+    "category": "APA Citation",
+    "tags": "APA, citations, references",
+    "coverImage": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80",
+    "metaTitle": "APA Citation Basics for Academic Reports",
+    "metaDescription": "Learn the basics of APA in-text citations, reference lists, online sources, citation consistency, and common mistakes in academic reports.",
+    "status": "published",
+    "content": "APA citations help readers identify where ideas, data, and quotations come from. A complete academic report usually needs both in-text citations and a reference list.\n\nIn-text citations usually include the author's name and year. Direct quotations also need page or paragraph information where available.\n\nReference list checklist:\n- Every cited source should appear in the reference list\n- Every reference list entry should be cited in the text\n- Author names, years, titles, journal names, links, and formatting should stay consistent\n\nCommon mistakes include mixing citation styles, forgetting retrieval information, citing sources not listed in references, or listing references that never appear in the report.",
+    "createdAt": "2026-05-17T00:00:00.000Z",
+    "updatedAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "article_methodology_guide",
+    "title": "Research Methodology Guide for Students",
+    "slug": "research-methodology-guide-students",
+    "excerpt": "Connect research questions, design, sampling, tools, data collection, limitations, and ethical considerations.",
+    "category": "Research Methodology",
+    "tags": "methodology, research design, sampling",
+    "coverImage": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+    "metaTitle": "Research Methodology Guide for Students",
+    "metaDescription": "Learn how to explain research methodology, design, sampling, data collection tools, limitations, and alignment with research questions.",
+    "status": "published",
+    "content": "Your methodology should explain how your method helps answer the research question. If the question asks about experiences, qualitative methods may fit. If it asks about measurement or comparison, quantitative methods may fit.\n\nDescribe whether the study is qualitative, quantitative, mixed, descriptive, exploratory, experimental, or case-based. Then explain why that design makes sense.\n\nYour methodology section should cover:\n- Who or what is studied\n- How participants, documents, or cases were selected\n- What tools are used, such as questionnaires, interviews, observations, datasets, or document analysis\n- What limitations affect scope, access, time, sample size, or data quality\n\nLimitations do not ruin a project. They show that you understand your research realistically.",
+    "createdAt": "2026-05-17T00:00:00.000Z",
+    "updatedAt": "2026-05-17T00:00:00.000Z"
+  }
+]
